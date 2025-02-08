@@ -1,0 +1,999 @@
+
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" charset="UTF-8"/>
+    <style>
+        * {
+            font-family: Verdana;
+        }
+
+        body {
+            margin: 0;
+            background-color: black
+        }
+
+
+        .main-info {
+            width: 306px;
+            height: 439px;
+        }
+
+        .description-block1 {
+            font-size: 12px;
+            width: 429px;
+            min-height: 30px;
+            background-color: #222;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .description-block2 {
+            font-size: 12px;
+            width: 429px;
+            min-height: 30px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .description-block-text1 {
+            width: 150px;
+        }
+
+        .description-block-text2 {
+            color: #dadada;
+            width: 269px;
+        }
+
+        .description-block-text1 a {
+            font-size: 12px;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .description-block-text2 a {
+            font-size: 12px;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .movie-description {
+            width: 648px;
+            height: 272px;
+        }
+
+        .input-box {
+            background-color: #1A1A1A;
+            border: 1px solid #333;
+            border-color: light-dark;
+            width: 363px;
+            height: 27px;
+        }
+
+        .logo {
+            padding-top: 7px;
+            padding-bottom: 6px
+        }
+
+        .header-flex {
+            width: 900px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 400
+        }
+
+        .post_image {
+            width: 200px;
+            height: auto;
+            position: relative;
+            display: inline;
+        }
+
+        .post_item {
+            background-color: #292929;
+            padding: 6px;
+            color: #aaa;
+        }
+
+        .top-post-item {
+            padding: 5px;
+            background-color: #292929;
+            color: #aaa;
+            transition: 0.2s;
+            margin-bottom: 5px;
+        }
+
+        .imtip {
+            position: absolute;
+            right: -3px;
+            background-color: #292929;
+            padding: 3px;
+            margin-top: -2px;
+            padding-bottom: 4px;
+            padding-left: 4px;
+            border-radius: 5px
+        }
+
+
+        .post_item_name {
+            display: block;
+            text-align: center;
+            font-size: 13px;
+            padding-top: 5px;
+            width: 200px
+        }
+
+        #newmovies span {
+            display: block;
+            text-align: center;
+            font-size: 11px;
+            padding-top: 5px;
+            width: 120px
+        }
+
+        #topmovies span {
+            display: block;
+            text-align: center;
+            font-size: 11px;
+            padding-top: 5px;
+            width: 120px;
+        }
+
+        .post_item_raiting {
+            width: 150px;
+            height: 15px
+        }
+
+
+        .current-rating {
+        }
+
+        .unit_rating {
+            background: url("./rating-s.png") 0 -68px;
+            list-style: none
+        }
+
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px
+        }
+
+        .grid_genres {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+            grid-gap: 4px;
+            margin: 1em 0 0;
+        }
+
+        .posts_main {
+            width: 665px;
+            margin-left: 8px;
+            justify-content: center;
+        }
+
+        .main-box {
+            max-width: 960px;
+            margin-top: 10.8em;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mainbox-style {
+            background-color: #111111;
+        }
+
+        #catline a {
+            color: #999;
+            background-color: #181818;
+            padding: 7px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 400
+        }
+
+        .genres {
+            width: 950px
+        }
+
+        .infoline {
+            display: flex;
+            justify-content: space-between;
+            background-color: #181818;
+            width: 665px;
+            height: 25px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        #newmovies {
+            width: 950px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+            #newmovies img {
+                width: 120px;
+                height: auto
+            }
+
+        #topmovies {
+            width: 275px;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            margin-left: -10px;
+        }
+
+            #topmovies img {
+                width: 120px;
+                display: flex;
+            }
+
+        #comments {
+            display: flex;
+            flex-direction: column;
+            width: 275px;
+            height: fit-content;
+        }
+
+        .comment {
+            display: block;
+            padding: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            background-color: #292929;
+        }
+
+        .movie-name-comment {
+            color: #999;
+            background-color: #222;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .lmeta {
+            padding: 5px;
+            margin-right: 7px;
+            color: #8A8A8A;
+            font-size: 12px;
+        }
+
+        .lmeta2 {
+            font-size: 13px
+        }
+
+        .padding-topmovie {
+            width: 275px;
+            margin: 5px;
+            background-color: #222222;
+        }
+
+
+        .sub_s_links {
+            border-right: solid 1px gray;
+            padding-right: 5px;
+        }
+
+        .footer {
+            border: 10px;
+            width: 950px;
+            height: 30px;
+            background-color: #181818;
+            color: rgb(165, 165, 165);
+            display: flex;
+            justify-content: space-between
+        }
+
+        .buttons {
+            background-color: #222222;
+            text-align: center;
+            align-content: center;
+            width: 135.5px;
+            height: 36px;
+        }
+
+        .sort {
+            width: 150px;
+            height: 30px;
+            background-color: #2c181a;
+            text-align: center;
+            align-content: center;
+        }
+
+        .x {
+            height: 30px;
+            width: 47px;
+            text-align: center;
+            align-content: center;
+            background-color: #2c181a
+        }
+
+        .sort-containers {
+            color: white;
+            gap: 5px;
+        }
+
+
+
+        #navigation {
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #a5a5a5;
+            gap: 10px
+        }
+
+            #navigation a {
+                text-align: center;
+                align-content: center;
+                background-color: #292929;
+                padding: 5px;
+            }
+
+        .button_case {
+            display: grid;
+            gap: 4px;
+            grid-template-columns: 1fr 1fr;
+            color: white;
+            width: 275px
+        }
+
+        .around-input-box {
+            padding: 2px;
+            padding-right: 25px;
+            background-color: #222222;
+            margin-bottom: 10px
+        }
+
+        .big-shit {
+            margin-left: -8px;
+            color: rgb(165, 165, 165);
+        }
+
+        .main-description {
+            width: 648px;
+            height: fit-content;
+            background-color: #222222;
+            padding-left: 12px;
+            padding-bottom: 7px;
+            padding-right: 12px;
+        }
+
+        .main-raiting {
+            width: 668px;
+            height: 57px;
+            background-color: #222222;
+            margin-top: 8px
+        }
+
+        .movie-title-main {
+            width: 668px;
+            background-color: #222222;
+            margin-top: 8px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: center;
+            align-content: center
+        }
+
+        .description-about-movie {
+            font-size: 12px;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .about-movie-title {
+            padding-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .player {
+            width: 658px;
+            height: 420px;
+            background-color: #222;
+            padding-left: 10px;
+            padding-top:10px
+            }
+
+        .watch-next {
+            width: 648px;
+            height: 224px;
+            background-color: #222;
+            padding: 10px;
+            margin: 5px 0 0;
+        }
+
+        .watch-next-span {
+            display: block;
+            text-align: center;
+            font-size: 11px;
+            padding-top: 5px;
+            width: 109px;
+        }
+
+        .watch-next-img {
+            width: 109px;
+            height: auto
+        }
+
+        .watch-next-body {
+            margin-top: 10px;
+            width: 628px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .watch-next-color {
+            background-color: #292929;
+            padding: 5px
+        }
+
+        .comment-movie-page {
+            width: 648px;
+            height: 253px;
+            background-color: #222;
+            padding: 10px;
+            margin: 5px 0 0;
+        }
+
+        .others-comments {
+            background-color: #181818;
+            padding: 10px;
+        }
+
+        .others-comment {
+            padding-bottom: 10px
+        }
+
+        .other-comment-name {
+            display: flex;
+            background-color: #333;
+            width: 638px;
+            height: 24px;
+            padding: 5px 10px;
+        }
+
+        .comment-pfp {
+            width: 70px;
+            aspect-ratio: auto 70 / 70;
+            height: 70px;
+        }
+
+        .comment-text {
+        }
+
+        .comment-body {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding-top: 10px;
+        }
+
+        .your-name-here {
+            background-color: #1A1A1A;
+            border: 1px solid #333;
+            width: 628px;
+            height: 46px;
+            outline: none;
+            transition: border 0.2s;
+            margin: 10px 0px;
+            padding-left: 10px
+        }
+
+        .your-comment {
+            background-color: #1A1A1A;
+            border: 1px solid #333;
+            width: 628px;
+            height: 100px;
+            outline: none;
+            transition: border 0.2s;
+            margin: 10px 0px;
+            padding-left: 10px;
+            padding-bottom: 60px;
+        }
+
+        .send-button {
+            border: none;
+            outline: none;
+            background-color: #333;
+            font-size: 13px;
+            color: #777;
+            line-height: 1.5em;
+            padding: 4px 10px;
+            cursor: pointer;
+            transition: .2s;
+            margin-left: 537px
+        }
+    </style>
+
+</head>
+
+<html lang="ru" xml:lang="ru">
+<body>
+    <div style="display:flex;justify-content:center">
+        <div class="main-box flex-container mainbox-style">
+            <div class="header-flex">
+                <div class="logo">
+                    <img src="https://gidonline.net/templates/Gidonline/images/gidonline.webp" />
+                </div>
+
+                <div style="color:white">
+                    <div class="around-input-box">
+                        <input class="input-box" placeholder="Название фильма..." />
+                        <a style="margin-left:25px;font-family:Arial;font-size:11px">НАЙТИ </a>
+                    </div>
+
+                    <div>
+                        <a>Новинки</a>
+                        <a>|</a>
+                        <a>Премьеры</a>
+                        <a>|</a>
+                        <a>Сериалы</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="newmovies">
+
+
+               
+                <div class="new-movie-image post_item" id="new-movie-post-item">
+                    
+                </div>
+
+            </div>
+            <div class="genres grid_genres" id="catline">                
+
+            </div>
+
+            <div id="main" class="flex-container">
+
+
+
+                <div class="big-shit">
+                    <div style="display:flex" class="description-and-poster">
+                        
+                        <div id="poster">
+
+                        </div>
+                        
+                        
+                        <div>
+                            <div class="description-block1">
+                                <b class="description-block-text1">Название:</b>
+                                <div class="description-block-text2" style="font-size:16px" id="name-poster">
+                                   
+                                </div>
+                            </div>
+                            <div class="description-block2">
+                                <b class="description-block-text1">Год:</b>
+                                <div  class="description-block-text2" id="year">
+                                </div>
+                            </div>
+                            <div class="description-block1">
+                                <b class="description-block-text1">Страна:</b>
+                                <div class="description-block-text2">
+                                    <a>Сша,</a>
+                                    <a>Франция,</a>
+                                    <a>Великобритания,</a>
+                                </div>
+                            </div>
+                            <div class="description-block2">
+                                <b class="description-block-text1">Жанр:</b>
+                                <div class="description-block-text2" id="genres-of-movie">
+                                    
+                                </div>
+                            </div>
+                            <div class="description-block1">
+                                <b class="description-block-text1">Время:</b>   
+                                <div id="time"></div>
+                            </div>
+
+                            <div class="description-block2">
+                                <b class="description-block-text1">В главных ролях:</b>
+                                <div class="description-block-text2" id="main-roles">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="main-description">
+                            <div class="about-movie-title" id="about">
+                                <b>Про фильм субстанция</b>
+                            </div>
+
+                            <div class="description-about-movie" id="description">
+                                
+                            </div>
+
+                            <div class="cycle">
+                                <b style="color: rgb(248,210,104)">Из цикла:</b>
+                                <b>С наградами</b>
+                            </div>
+                            <div class="translation">
+                                <b style="color: rgb(248,210,104)">Доступные переводы:</b>
+                                <b>HDRezka Studio, LineFilm, Дублированный, Колобок, Многоголосый закадровый, Қазақша</b>
+                            </div>
+                        </div>
+
+                        <div class="main-raiting">
+                            <div class="main-raiting-stars">
+
+                            </div>
+                            <div class="main-raiting-number">
+
+                            </div>
+                        </div>
+                        <div class="movie-title-main" id="movie-title-main">
+                            
+                        </div>
+
+                        <div class="player" id="player">
+
+                        </div>
+
+                        <div class="watch-next">
+                            <div>
+                                <b style="color:#FF0000">Ч</b>
+                                <b style="margin-left:-5px">то еще посмотреть</b>
+                                <div class="watch-next-body" id="watch-next">
+                                                   
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment-movie-page">
+                            <div>
+                                <b style="color: rgb(255,0,0)">К</b>
+                                <b style="margin-left:-5px">омментарии</b>
+                            </div>
+
+                            <input class="your-name-here" placeholder="Ваше имя"/>
+
+                            <input class="your-comment" placeholder="Ваш комментарий"/>
+
+                            <button class="send-button">Отправить</button>
+                        </div>
+
+                        <div class="others-comments">
+                            <div class="others-comment">
+                                <div class="other-comment-name">
+                                    <img src="./images/c-author.webp" />
+                                    <b>Максим</b>
+                                </div>
+                                <div class="comment-body">
+                                    <img src="./images/noavatar.png" />
+                                    <b class="comment-text">
+                                        Фільм клас😎😎😎😎😎
+                                    </b>
+                                </div>
+
+
+                            </div>
+
+                            <div class="others-comment">
+                                <div class="other-comment-name">
+                                    <img src="./images/c-author.webp" />
+                                    <b>Максим</b>
+                                </div>
+                                <div class="comment-body">
+                                    <img src="./images/noavatar.png" />
+                                    <b class="comment-text">
+                                        Фільм клас😎😎😎😎😎
+                                    </b>
+                                </div>
+                            </div>
+
+                            <div class="others-comment">
+                                <div class="other-comment-name">
+                                    <img src="./images/c-author.webp" />
+                                    <b>Максим</b>
+                                </div>
+                                <div class="comment-body">
+                                    <img src="./images/noavatar.png" />
+                                    <b class="comment-text">
+                                        Фільм клас😎😎😎😎😎
+                                    </b>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div>
+                <div id="topmovies">
+
+                    <div>
+                        <div class="button_case">
+                            <div class="buttons">
+                                <a>Вход</a>
+                            </div>
+                            <div class="buttons">
+                                <a>Регистрация</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="padding-topmovie">
+
+                        <div style="padding:5px;color:white">
+                            <a>ТОП за 3 дня</a>
+                        </div>
+
+                        <div class="flex-container" style="margin-top:5px;justify-content:center" id="top-post-3day">
+                                                     
+                        </div>
+                    </div>
+
+                    <div class="padding-topmovie">
+                        <div style="padding:5px;color:white">
+                            <a>Дорамы/сериалы</a>
+                        </div>
+
+                        <div class="flex-container" style="margin-top:5px;justify-content:center" id="dorama">
+
+                        </div>
+                    </div>
+
+                    <div id="comments" class="padding-topmovie">
+                        <div style=" margin-left: 5px; color:white; font-size:16px;padding:5px">
+                            <a>Последние комментарии</a>
+                        </div>
+
+                        <div>
+                            <div class="comment">
+                                <div class="movie-name-comment">
+                                    <a>movie name</a>
+                                </div>
+
+                                <div class="lmeta">
+                                    <a>name</a>
+                                    <a>date</a>
+                                </div>
+
+                                <div class="lmeta lmeta2" style="color:#ccc">
+                                    <a>placeholder text</a>
+                                </div>
+                            </div>
+
+                            <div class="comment">
+                                <div class="movie-name-comment">
+                                    <a>movie name</a>
+                                </div>
+
+                                <div class="lmeta">
+                                    <a>name</a>
+                                    <a>date</a>
+                                </div>
+
+                                <div class="lmeta lmeta2" style="color:#ccc">
+                                    <a>placeholder text</a>
+                                </div>
+                            </div>
+
+                            <div class="comment">
+                                <div class="movie-name-comment">
+                                    <a>movie name</a>
+                                </div>
+
+                                <div class="lmeta">
+                                    <a>name</a>
+                                    <a>date</a>
+                                </div>
+
+                                <div class="lmeta lmeta2" style="color:#ccc">
+                                    <a>placeholder text</a>
+                                </div>
+                            </div>
+
+                            <div class="comment">
+                                <div class="movie-name-comment">
+                                    <a>movie name</a>
+                                </div>
+
+                                <div class="lmeta">
+                                    <a>name</a>
+                                    <a>date</a>
+                                </div>
+
+                                <div class="lmeta lmeta2" style="color:#ccc">
+                                    <a>placeholder text</a>
+                                </div>
+                            </div>
+
+                            <div class="comment">
+                                <div class="movie-name-comment">
+                                    <a>movie name</a>
+                                </div>
+
+                                <div class="lmeta">
+                                    <a>name</a>
+                                    <a>date</a>
+                                </div>
+
+                                <div class="lmeta lmeta2" style="color:#ccc">
+                                    <a>placeholder text</a>
+                                </div>
+                            </div>
+
+                            <div class="comment">
+                                <div class="movie-name-comment">
+                                    <a>movie name</a>
+                                </div>
+
+                                <div class="lmeta">
+                                    <a>name</a>
+                                    <a>date</a>
+                                </div>
+
+                                <div class="lmeta lmeta2" style="color:#ccc">
+                                    <a>placeholder text</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="navigation" id="navigation">
+                <span>Назад</span>
+                <span>1</span>
+                <a>2</a>
+                <a>3</a>
+                <a>4</a>
+                <a>5</a>
+                <a>6</a>
+                <a>7</a>
+                <a>8</a>
+                <a>9</a>
+                <a>10</a>
+                <span>...</span>
+                <a>7246</a>
+                <a>Вперед</a>
+            </div>
+
+            <div class="footer">
+                <div style="padding:5px">
+                    <a>ГидОнлайн - Твой гид в мире кино! ♦ 16+</a>
+                </div>
+                <div style="padding:5px">
+                    <a>Новинки</a>
+                    <a>|</a>
+                    <a>Премьеры</a>
+                    <a>|</a>
+                    <a>Сериалы</a>
+                </div>
+            </div>
+        </div>
+
+
+            
+        </div>
+    <script>
+            current_url = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+            console.log(current_url);
+            async function fetching() {
+            
+
+            console.log("fetching...");
+            var response = await fetch('/movies');
+            console.log("response received:", response);
+            const data = await response.json();
+
+            response = await fetch(`/individual?movie_id=${current_url}`);
+            const data2 = await response.json();
+
+
+            var genresDiv = document.getElementById('catline');
+            var watchNextDiv = document.getElementById('watch-next');
+            var newMovieDiv = document.getElementById('newmovies');
+            var topPostDorama = document.getElementById('dorama');
+            var topPostDiv = document.getElementById('top-post-3day');
+            var mainRoles = document.getElementById('main-roles');
+            var genreOfmovie = document.getElementById('genres-of-movie');
+
+
+
+
+            data.genres.forEach(g => {
+                const gDiv = document.createElement('a');
+                gDiv.textContent = g.genre;
+                genresDiv.appendChild(gDiv);
+            });
+
+            data2.actors.forEach(act =>
+            {
+                const aDiv = document.createElement('a');
+                aDiv.textContent = act.actor;
+                mainRoles.appendChild(aDiv);
+            })
+
+                console.log("жанры", data2.genre_movie_is);
+            data2.genre_movie_is.forEach(g => {
+                const aDiv = document.createElement('a');
+                aDiv.textContent = " " + g.genre + " ";
+                genreOfmovie.appendChild(aDiv);
+            })
+
+            for (let i = 0; i < 7; i++) {
+                const div = document.createElement('div');
+                div.innerHTML = `<div class="new-movie-image post_item" id="new-movie-post-item">
+                                <img src="${data.moviesData[i].image}" />
+                                <span class="new-movie-name">${data.moviesData[i].name}</span>
+                                </div>`;
+                newMovieDiv.appendChild(div);
+            }
+
+            for (let i = 0; i < 4; i++) {
+                const div = document.createElement('div');
+                const div2 = document.createElement('div');
+                div.innerHTML = `<div class="top-post-item" id="top-post">
+                    <img src="${data.moviesData[i].image}" />
+                    <span>${data.moviesData[i].name}</span>
+                </div>`;
+                div2.innerHTML = `<div class="top-post-item" id="top-post">
+                    <img src="${data.moviesData[i].image}" />
+                    <span>${data.moviesData[i].name}</span>
+                </div>`;
+                topPostDorama.appendChild(div2);
+                topPostDiv.appendChild(div);
+            }
+
+            for (let i = 0; i < 5; i++) {
+                const div = document.createElement('div');
+                div.innerHTML = `<div class="watch-next-color" id="watch-next">
+                                <img src="${data.moviesData[i].image}" class="watch-next-img" />
+                                <span class="watch-next-span">${data.moviesData[i].name}</span>
+                                </div>`;
+                watchNextDiv.appendChild(div);
+            }
+
+            const vidPlayer = document.getElementById('player');
+            const titleMain = document.getElementById('movie-title-main');
+            const moviePoster = document.getElementById('poster');
+            const namePoster = document.getElementById('name-poster');
+            const about = document.getElementById('about');
+            const year = document.getElementById('year');
+            const time = document.getElementById('time');
+
+
+            var theMovie = data2.moviesData[0];
+            
+            vidPlayer.innerHTML = theMovie.vid_link;
+            titleMain.innerHTML = `<b>
+                                        смотреть онлайн ${theMovie.name} в хорошем качестве
+                                    </b>`;
+            moviePoster.innerHTML = `<img src="${theMovie.image}"/>`;
+            namePoster.innerHTML = `<b> ${theMovie.name}</b >`;
+            about.innerHTML = `<b>${theMovie.description}</b >`;
+            year.innerHTML = `<a>${theMovie.year}</a>`;
+            time.innerHTML = `<b class="description-block-text2">${theMovie.len}</b>`;
+
+        }
+        fetching();
+
+    </script>
+</body>
+</html>
